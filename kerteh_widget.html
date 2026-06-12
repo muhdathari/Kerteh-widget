@@ -10,42 +10,41 @@
 </head>
 <body>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; border-radius:6px; overflow:hidden; border:1px solid #1a5c38; display:inline-block;">
-  <div style="background:#e8f5ee; padding:5px 10px;">
-    <div style="display:flex; align-items:center; gap:10px;">
-      <div style="display:flex; align-items:center; gap:4px;">
-        <span style="font-size:10px; color:#555;">Pressure</span>
-        <span id="live-bar" style="font-size:16px; font-weight:700; color:#1a5c38;">6.2 bar</span>
-        <span style="background:#d4edda; color:#1a5c38; font-size:9px; padding:1px 5px; border-radius:8px; font-weight:700;">Normal</span>
-      </div>
-      <div style="width:1px; height:20px; background:#b2d8c2;"></div>
-      <div style="display:flex; align-items:center; gap:4px;">
-        <span style="font-size:10px; color:#555;">Wind</span>
-        <span id="live-wind" style="font-size:16px; font-weight:700; color:#1a5c38;">142 m³/h</span>
-      </div>
-      <div style="width:1px; height:20px; background:#b2d8c2;"></div>
-      <div style="display:flex; align-items:center; gap:4px;">
-        <span style="font-size:10px; color:#555;">Temp</span>
-        <span id="live-suhu" style="font-size:16px; font-weight:700; color:#1a5c38;">28.4°C</span>
-      </div>
+<div style="display:inline-block; border-radius:0px; overflow:hidden; border:1px solid #1a5c38; font-family:Arial,sans-serif; min-width:280px;">
+  <div style="background:#1a5c38; padding:12px 10px;">
+  </div>
+  <div style="background:#e8f5ee; padding:4px 10px;">
+
+    <div style="display:flex; align-items:center; padding:5px 0; border-bottom:1px solid #c2dece;">
+      <span style="font-size:11px; color:#555; width:100px;">Pressure</span>
+      <span id="live-bar-num" style="font-size:16px; font-weight:700; color:#1a5c38; width:45px; text-align:right;">6.2</span>
+      <span style="font-size:11px; color:#1a5c38; margin-left:4px; width:30px;">bar</span>
+      <span style="background:#d4edda; color:#1a5c38; font-size:9px; padding:1px 5px; border-radius:0px; font-weight:700; margin-left:6px;">Normal</span>
     </div>
+
+    <div style="display:flex; align-items:center; padding:5px 0; border-bottom:1px solid #c2dece;">
+      <span style="font-size:11px; color:#555; width:100px;">Wind</span>
+      <span id="live-wind-num" style="font-size:16px; font-weight:700; color:#1a5c38; width:45px; text-align:right;">142</span>
+      <span style="font-size:11px; color:#1a5c38; margin-left:4px; width:30px;">m³/h</span>
+    </div>
+
+    <div style="display:flex; align-items:center; padding:5px 0;">
+      <span style="font-size:11px; color:#555; width:100px;">Temperature</span>
+      <span id="live-suhu-num" style="font-size:16px; font-weight:700; color:#1a5c38; width:45px; text-align:right;">28.4</span>
+      <span style="font-size:11px; color:#1a5c38; margin-left:4px; width:30px;">°C</span>
+    </div>
+
   </div>
 </div>
 
 <script type="text/javascript">
-  function randomTemp() {
-    return (28 + Math.random() * 7).toFixed(1) + '°C';
-  }
-  function randomBar() {
-    return (5 + Math.random() * 5).toFixed(1) + ' bar';
-  }
-  function randomWind() {
-    return Math.floor(130 + Math.random() * 30) + ' m³/h';
-  }
+  function randomTemp() { return (28 + Math.random() * 7).toFixed(1); }
+  function randomBar() { return (5 + Math.random() * 5).toFixed(1); }
+  function randomWind() { return Math.floor(130 + Math.random() * 30); }
   function updateAll() {
-    document.getElementById('live-suhu').textContent = randomTemp();
-    document.getElementById('live-bar').textContent = randomBar();
-    document.getElementById('live-wind').textContent = randomWind();
+    document.getElementById('live-suhu-num').textContent = randomTemp();
+    document.getElementById('live-bar-num').textContent = randomBar();
+    document.getElementById('live-wind-num').textContent = randomWind();
   }
   updateAll();
   setInterval(updateAll, 5000);
