@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerteh Sensor Widget</title>
+  <style>
+    body { margin: 0; padding: 0; background: transparent; }
+  </style>
+</head>
+<body>
+
+<div style="font-family:Arial,sans-serif; font-size:12px; border-radius:8px; overflow:hidden; border:1px solid #1a5c38;">
+  <div style="background:#1a5c38; padding:7px 12px;">
+    <p style="color:#e8c96a; font-size:13px; font-weight:700; margin:0;">&#127963; Eastern Region &mdash; Kerteh</p>
+    <p style="color:rgba(255,255,255,.7); font-size:10px; margin:1px 0 0;">&#9679; Online &bull; <span id="live-suhu">...</span>&#176;C &bull; 142 m&#179;/h</p>
+    <p style="color:rgba(255,255,255,.5); font-size:9px; margin:1px 0 0;" id="station-name"></p>
+  </div>
+  <div style="background:#e8f5ee; padding:6px 12px; border-bottom:1px solid #b2d8c2;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:22px; font-weight:700; color:#1a5c38;">6.2 bar</span>
+      <div style="flex:1;">
+        <div style="background:#c8e6c9; border-radius:8px; height:8px;">
+          <div style="background:#1a5c38; border-radius:8px; height:8px; width:62%;"></div>
+        </div>
+        <div style="font-size:9px; color:#999;">0 &mdash; 10 bar</div>
+      </div>
+      <span style="background:#d4edda; color:#1a5c38; font-size:10px; padding:2px 6px; border-radius:10px; font-weight:700;">Normal</span>
+    </div>
+  </div>
+  <div style="background:#1a5c38; color:#e8c96a; padding:4px 12px; font-weight:700; font-size:10px;">READINGS EVERY 2H</div>
+  <div style="background:#e8f5ee; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">00:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">5.8 bar</span></div>
+  <div style="background:#f2faf5; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">02:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">5.9 bar</span></div>
+  <div style="background:#e8f5ee; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">04:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.1 bar</span></div>
+  <div style="background:#f2faf5; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">06:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.8 bar</span></div>
+  <div style="background:#e8f5ee; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">08:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.3 bar</span></div>
+  <div style="background:#f2faf5; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">10:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.1 bar</span></div>
+  <div style="background:#e8f5ee; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">12:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.5 bar</span></div>
+  <div style="background:#f2faf5; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">14:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.7 bar</span></div>
+  <div style="background:#e8f5ee; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">16:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">7.1 bar</span></div>
+  <div style="background:#f2faf5; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">18:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.9 bar</span></div>
+  <div style="background:#e8f5ee; border-bottom:1px solid #c2dece; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">20:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.5 bar</span></div>
+  <div style="background:#f2faf5; padding:4px 12px; display:flex; justify-content:space-between;"><span style="color:#444;">22:00</span><span style="background:#1a5c38; color:#fff; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:700;">6.4 bar</span></div>
+</div>
+
+<script type="text/javascript">
+(function() {
+
+  // Convert Fahrenheit to Celsius
+  function fToC(f) {
+    return ((f - 32) * 5 / 9).toFixed(1);
+  }
+
+  // Fetch suhu dari NOAA METAR - Malaysia bounding box
+  function fetchSuhu() {
+    var url = "https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/NOAA_METAR_current_wind_speed_direction_v1/FeatureServer/0/query"
+      + "?where=AIR_TEMP_F+IS+NOT+NULL"
+      + "&outFields=STATION_NAME,AIR_TEMP_F"
+      + "&geometry=99%2C1%2C120%2C8"
+      + "&geometryType=esriGeometryEnvelope"
+      + "&spatialRel=esriSpatialRelIntersects"
+      + "&resultRecordCount=1"
+      + "&orderByFields=STATION_NAME"
+      + "&f=json";
+
+    fetch(url)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.features && data.features.length > 0) {
+          var attr = data.features[0].attributes;
+          var tempC = fToC(attr.AIR_TEMP_F);
+          document.getElementById('live-suhu').textContent = tempC;
+          document.getElementById('station-name').textContent = attr.STATION_NAME || '';
+        }
+      })
+      .catch(function() {
+        document.getElementById('live-suhu').textContent = '--';
+      });
+  }
+
+  fetchSuhu();
+  setInterval(fetchSuhu, 60000); // update every 1 minit
+
+})();
+</script>
+
+</body>
+</html>
